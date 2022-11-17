@@ -7,6 +7,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/category")
@@ -24,7 +26,6 @@ public class CategoryController {
 
 
     //delete
-    //category/delete/1
     //@DeleteMapping("/category-delete/{id}")
     @PostMapping("delete/{id}")
     public String deleteCategory(@PathVariable int id){
@@ -34,11 +35,10 @@ public class CategoryController {
 
     //form save
     //category-form
-    //category/form/1
-    @GetMapping(value = {"form","form/id"})
-    public String categoryForm(@PathVariable(required = false) Integer Id, Model model){
-        if(Id != null){
-            model.addAttribute("category", categoryService.findCategoryById(Id));
+    @GetMapping(value = {"form","form/{id}"})
+    public String categoryForm(@PathVariable(required = false) Integer id, Model model){
+        if(id != null){
+            model.addAttribute("category", categoryService.findCategoryById(id));
         } else {
             model.addAttribute("category", new Category());
         }
@@ -47,7 +47,6 @@ public class CategoryController {
 
 
     //save
-    //category/save
     //@RequestMapping("/save")
     @PostMapping("save")
     public String saveCategory(Category category){

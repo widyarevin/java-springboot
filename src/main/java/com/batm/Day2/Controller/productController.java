@@ -1,8 +1,6 @@
 package com.batm.Day2.Controller;
 
-import com.batm.Day2.entities.Category;
 import com.batm.Day2.entities.Product;
-import com.batm.Day2.services.CategoryService;
 import com.batm.Day2.services.productService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 @RequestMapping("/product")
